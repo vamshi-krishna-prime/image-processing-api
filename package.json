@@ -1,40 +1,48 @@
 {
-  "name": "image-api",
+  "name": "image-processing-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "This package will help to resize jpg images and help to fetch image of the required size in very fast way.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && npm run jasmine",
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "lint": "eslint . --ext .ts",
-    "format": "prettier --config .prettierrc \"src/**/*.ts\" --write",
-    "jasmine": "jasmine",
     "build": "npx tsc",
-    "start": "nodemon src/index.ts"
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "start-prod": "node src/index.ts",
+    "start-dev": "nodemon src/index.ts",
+    "start": "npm run prettier && npm run lint && npm run test && npm run start-dev"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Vamshi_Krishna",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jasmine": "^4.0.3",
+    "@types/morgan": "^1.9.3",
     "@types/node": "^18.0.3",
     "@types/sharp": "^0.30.4",
     "@types/supertest": "^2.0.12",
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
-    "eslint": "^8.19.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.19",
-    "prettier": "^2.7.1",
-    "ts-node": "^10.8.2",
-    "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "express": "^4.18.1",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jasmine": "^4.1.3",
+    "eslint-plugin-prettier": "^4.0.0",
     "jasmine": "^4.2.1",
     "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.4",
+    "ts-node": "^10.8.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.4.0",
+    "helmet": "^5.1.0",
+    "morgan": "^1.10.0",
     "sharp": "^0.30.7",
-    "supertest": "^6.2.4"
+    "typescript": "^4.7.4"
   }
 }
